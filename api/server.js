@@ -17,7 +17,7 @@ const app = express();
 //   origin: 'http://localhost:3050',
 // };
 
-// midelwares
+// middelwares
 app.use(cors());
 app.use(morgan('dev'));
 // app.use(bodyParser.json());

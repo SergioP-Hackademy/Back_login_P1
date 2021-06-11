@@ -17,12 +17,14 @@ exports.login = async (req, res) => {
       attributes: ['id', 'password', 'statusDelete'],
     });
     console.log(data.dataValues);
+
     if (Object.keys(data).length === 0) {
       res.status(202).send({ message: 'No se encontraron registros, o el usuario esta desactivado' });
     }
     // const compare = await bcrypt.compare(req.body.password, data.password);
     // console.log(typeof compare);
     // console.log(compare);
+
     if (await bcrypt.compare(req.body.password, data.password)) {
       log(chalk.red.bgWhiteBright.bold('comparacion exitosa de contraseñas'));
       // jwt.sign requiere un plain object, el objeto que retorna sequelize es objeto con prototipo
@@ -31,6 +33,7 @@ exports.login = async (req, res) => {
       const { password, statusDelete, ...userInfo } = data.dataValues;
       //   console.log(userInfo);
       console.log(data.dataValues.password);
+      // Se genera el token
       try {
         var userToken = await jwt.sign(
           userInfo,

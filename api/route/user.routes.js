@@ -17,4 +17,5 @@ routes.delete('/', auth.authenticateToken, auth.authenticateAdmin, usuario.defus
 
 routes.get('/', auth.authenticateToken, usuario.findOne);
 
+
 module.exports = routes;

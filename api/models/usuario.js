@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+
     }
   };
   Usuario.init({
@@ -21,13 +21,13 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     nombre: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       validate: {
         isAlpha: true, 
       },
     },
     apellido: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       validate: {
         isAlpha: true, 
       },
